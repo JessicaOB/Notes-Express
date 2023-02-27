@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const { v4: uuidv4 } = require('uuid');
-let notes = require('./db/db.json');
+let { notes } = require('./db/db.json');
 const fs = require("fs");
 
 const app = express();
@@ -14,7 +14,6 @@ const ROOT = { root: path.join(__dirname, './public') };
 
 // route for notes page
 app.get('/notes', (req, res) => {
-    // res.sendFile(path.join(__dirname, '/public/notes.html'))
     res.sendFile("notes.html", ROOT);
 });
 
